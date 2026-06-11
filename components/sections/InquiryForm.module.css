@@ -1,0 +1,145 @@
+.section {}
+
+.formCard {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-12);
+  box-shadow: var(--shadow-hover);
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: var(--text-h1);
+  color: var(--color-teal-dark);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.subtext {
+  font-size: var(--text-body);
+  color: var(--color-muted);
+  margin-bottom: var(--space-8);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  color: var(--color-charcoal);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.required {
+  color: var(--color-magenta);
+}
+
+.input,
+.textarea {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  color: var(--color-charcoal);
+  background: var(--color-cream);
+  border: 1.5px solid #DDD;
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+  resize: vertical;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: var(--color-teal);
+  box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.15);
+}
+
+.inputError {
+  border-color: #e53e3e;
+}
+
+.inputError:focus {
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.15);
+}
+
+.errorMsg {
+  font-size: var(--text-caption);
+  color: #e53e3e;
+  font-weight: 500;
+}
+
+.submitRow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--color-gold);
+  color: var(--color-teal-dark);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 700;
+  padding: var(--space-3) var(--space-8);
+  border-radius: var(--radius-full);
+  transition: background 0.2s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: var(--color-gold-light);
+  transform: scale(1.03);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Success state */
+.successWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-16) var(--space-6);
+  gap: var(--space-4);
+}
+
+.successTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-h1);
+  color: var(--color-teal-dark);
+  font-weight: 600;
+}
+
+.successText {
+  font-size: var(--text-body-lg);
+  color: var(--color-muted);
+}

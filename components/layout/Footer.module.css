@@ -1,0 +1,113 @@
+.footer {
+  background-color: var(--color-teal-dark);
+  color: var(--color-white-soft);
+  padding-top: var(--space-16);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-12);
+  padding-bottom: var(--space-12);
+}
+
+/* Brand Column */
+.brand {}
+
+.logoRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.logoIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(201, 150, 10, 0.12);
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.brandName {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  line-height: 1.3;
+}
+
+.tagline {
+  font-size: var(--text-caption);
+  color: rgba(240, 238, 234, 0.7);
+  line-height: 1.6;
+  max-width: 260px;
+}
+
+/* Contact Column */
+.contactHeading {
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  color: var(--color-gold);
+  margin-bottom: var(--space-4);
+  font-weight: 600;
+}
+
+.contactRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  font-size: var(--text-caption);
+  color: rgba(240, 238, 234, 0.8);
+}
+
+.contactRow a {
+  color: rgba(240, 238, 234, 0.8);
+  transition: color 0.2s;
+}
+
+.contactRow a:hover {
+  color: var(--color-gold);
+}
+
+/* Links Column */
+.linksCol {}
+
+.linksNav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footerLink {
+  font-size: var(--text-caption);
+  color: rgba(240, 238, 234, 0.8);
+  transition: color 0.2s;
+}
+
+.footerLink:hover {
+  color: var(--color-gold);
+}
+
+/* Bottom bar */
+.bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: var(--space-6) 0;
+}
+
+.copyright {
+  font-size: var(--text-caption);
+  color: rgba(240, 238, 234, 0.5);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}

@@ -1,0 +1,56 @@
+.section {
+  background-color: var(--color-cream);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+}
+
+.card {
+  border-radius: var(--radius-lg);
+  padding: var(--space-10, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.cardNeutral {
+  background: var(--color-cream-warm);
+  border: 1px solid #E0D8CC;
+}
+
+.cardTeal {
+  background: rgba(42, 157, 143, 0.06);
+  border: 1px solid rgba(42, 157, 143, 0.25);
+}
+
+.iconWrap {
+  width: 52px;
+  height: 52px;
+  background: rgba(42, 157, 143, 0.12);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-h2);
+  color: var(--color-teal-dark);
+  font-weight: 600;
+}
+
+.cardText {
+  font-size: var(--text-body-lg);
+  color: var(--color-muted);
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

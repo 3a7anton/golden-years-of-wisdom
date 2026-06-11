@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <pattern id="arabesque" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <!-- Center star -->
+      <polygon points="50,10 61,35 88,35 66,57 74,82 50,66 26,82 34,57 12,35 39,35" 
+               fill="none" stroke="#C9960A" stroke-width="0.8" opacity="0.4"/>
+      <!-- Inner circle -->
+      <circle cx="50" cy="50" r="18" fill="none" stroke="#C9960A" stroke-width="0.6" opacity="0.3"/>
+      <!-- Corner ornaments -->
+      <circle cx="0" cy="0" r="8" fill="none" stroke="#C9960A" stroke-width="0.5" opacity="0.3"/>
+      <circle cx="100" cy="0" r="8" fill="none" stroke="#C9960A" stroke-width="0.5" opacity="0.3"/>
+      <circle cx="0" cy="100" r="8" fill="none" stroke="#C9960A" stroke-width="0.5" opacity="0.3"/>
+      <circle cx="100" cy="100" r="8" fill="none" stroke="#C9960A" stroke-width="0.5" opacity="0.3"/>
+      <!-- Connecting lines -->
+      <line x1="50" y1="10" x2="50" y2="0" stroke="#C9960A" stroke-width="0.4" opacity="0.25"/>
+      <line x1="50" y1="90" x2="50" y2="100" stroke="#C9960A" stroke-width="0.4" opacity="0.25"/>
+      <line x1="10" y1="50" x2="0" y2="50" stroke="#C9960A" stroke-width="0.4" opacity="0.25"/>
+      <line x1="90" y1="50" x2="100" y2="50" stroke="#C9960A" stroke-width="0.4" opacity="0.25"/>
+      <!-- Diagonal cross -->
+      <line x1="22" y1="22" x2="30" y2="30" stroke="#C9960A" stroke-width="0.4" opacity="0.2"/>
+      <line x1="78" y1="22" x2="70" y2="30" stroke="#C9960A" stroke-width="0.4" opacity="0.2"/>
+      <line x1="22" y1="78" x2="30" y2="70" stroke="#C9960A" stroke-width="0.4" opacity="0.2"/>
+      <line x1="78" y1="78" x2="70" y2="70" stroke="#C9960A" stroke-width="0.4" opacity="0.2"/>
+      <!-- Small diamonds at mid-edges -->
+      <polygon points="50,3 53,6 50,9 47,6" fill="#C9960A" opacity="0.2"/>
+      <polygon points="50,91 53,94 50,97 47,94" fill="#C9960A" opacity="0.2"/>
+      <polygon points="3,50 6,53 9,50 6,47" fill="#C9960A" opacity="0.2"/>
+      <polygon points="91,50 94,53 97,50 94,47" fill="#C9960A" opacity="0.2"/>
+    </pattern>
+  </defs>
+  <rect width="200" height="200" fill="url(#arabesque)"/>
+</svg>

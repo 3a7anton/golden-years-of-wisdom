@@ -1,0 +1,40 @@
+.imageHero {
+  position: relative;
+  height: 60vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(27, 122, 110, 0.62);
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding-top: 72px;
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-h1);
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.heroSubtitle {
+  font-size: var(--text-body-lg);
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 600px;
+  line-height: 1.7;
+}

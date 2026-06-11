@@ -1,0 +1,49 @@
+.hero {
+  padding: calc(72px + var(--space-16)) 0 var(--space-16);
+  position: relative;
+  overflow: hidden;
+}
+
+.aboutHero {
+  background-color: var(--color-teal);
+  background-image: repeating-radial-gradient(
+    circle at 50% 50%,
+    transparent 30px,
+    rgba(255, 255, 255, 0.06) 31px,
+    rgba(255, 255, 255, 0.06) 32px,
+    transparent 33px
+  );
+  background-size: 80px 80px;
+}
+
+.contactHero {
+  background-color: var(--color-teal);
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.18) 1px,
+    transparent 1px
+  );
+  background-size: 32px 32px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-4);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: var(--text-h1);
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: var(--text-body-lg);
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 600px;
+  line-height: 1.7;
+}

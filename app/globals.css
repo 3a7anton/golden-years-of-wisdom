@@ -1,40 +1,106 @@
+/* ============================================================
+   Golden Years of Wisdom — Global CSS
+   Design tokens from designer.md
+   ============================================================ */
+
+/* === GOOGLE FONTS === */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&family=Hind+Siliguri:wght@400;600&display=swap');
+
+/* === DESIGN TOKENS === */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary Colors */
+  --color-teal:        #2A9D8F;
+  --color-teal-dark:   #1B7A6E;
+  --color-teal-light:  #3DB8A8;
+
+  /* Neutrals */
+  --color-cream:       #F5F0E8;
+  --color-cream-warm:  #EDE7D9;
+  --color-white:       #FFFFFF;
+
+  /* Accents */
+  --color-gold:        #C9960A;
+  --color-gold-light:  #E8B42A;
+  --color-brown:       #8B5E3C;
+  --color-magenta:     #E040A0;
+  --color-forest:      #2D7A2D;
+
+  /* Text */
+  --color-charcoal:    #2C2C2C;
+  --color-muted:       #6B6B6B;
+  --color-white-soft:  #F0EEEA;
+
+  /* Semantic */
+  --color-bg-primary:  var(--color-cream);
+  --color-bg-dark:     var(--color-teal);
+  --color-border-accent: var(--color-magenta);
+
+  /* Typography */
+  --font-display:  'Playfair Display', Georgia, serif;
+  --font-heading:  'Lora', Georgia, serif;
+  --font-body:     'Inter', system-ui, sans-serif;
+  --font-bengali:  'Hind Siliguri', sans-serif;
+
+  /* Type Scale */
+  --text-display:  clamp(2.8rem, 5vw, 5rem);
+  --text-h1:       clamp(2rem, 3.5vw, 3.2rem);
+  --text-h2:       clamp(1.5rem, 2.5vw, 2.2rem);
+  --text-h3:       1.25rem;
+  --text-body-lg:  1.125rem;
+  --text-body:     1rem;
+  --text-caption:  0.875rem;
+  --text-eyebrow:  0.75rem;
+
+  /* Spacing */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Border Radius */
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-xl:   32px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-card:   0 2px 20px rgba(42, 157, 143, 0.08);
+  --shadow-hover:  0 8px 40px rgba(42, 157, 143, 0.18);
+  --shadow-modal:  0 24px 80px rgba(0, 0, 0, 0.24);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* === RESET === */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-  height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  color: var(--color-charcoal);
+  background-color: var(--color-cream);
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+img {
+  max-width: 100%;
+  display: block;
 }
 
 a {
@@ -42,8 +108,108 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  border: none;
+  background: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* === SKIP NAV === */
+.skip-nav {
+  position: absolute;
+  top: -100px;
+  left: var(--space-4);
+  background: var(--color-gold);
+  color: var(--color-teal-dark);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-nav:focus {
+  top: var(--space-4);
+}
+
+/* === LAYOUT === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+
+/* === SECTION BACKGROUNDS === */
+.section-cream {
+  background-color: var(--color-cream);
+  background-image: url('/patterns/arabesque-tile.svg');
+  background-size: 200px 200px;
+}
+
+.section-cream-warm {
+  background-color: var(--color-cream-warm);
+  background-image: url('/patterns/arabesque-tile.svg');
+  background-size: 200px 200px;
+}
+
+.section-teal {
+  background-color: var(--color-teal);
+  color: var(--color-white-soft);
+}
+
+.section-teal-dark {
+  background-color: var(--color-teal-dark);
+  color: var(--color-white-soft);
+}
+
+/* === SECTION PADDING === */
+.section-pad {
+  padding: var(--space-24) 0;
+}
+
+/* === FOCUS RING === */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* === REDUCED MOTION === */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.1ms !important;
+  }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+  }
+  .section-pad {
+    padding: var(--space-16) 0;
   }
 }
