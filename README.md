@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Golden Years of Wisdom
 
-## Getting Started
+Welcome to the **Golden Years of Wisdom** project! This is a modern web application built for a senior living community, providing comprehensive information about our philosophy, studio apartments, amenities, and volunteer opportunities.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Responsive Design**: Built with Next.js and CSS Modules for a seamless experience on all devices.
+- **Detailed Pages**: Easy-to-navigate pages including About, Studio Apartments, Careers, and Volunteer sections.
+- **Interactive UI**: Engaging user interfaces for inquiry forms, eligibility requirements, and community timelines.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠 Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: [Next.js](https://nextjs.org) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: CSS Modules
+- **Deployment**: Designed for seamless deployment on platforms like [Vercel](https://vercel.com/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Getting Started
 
-## Learn More
+To get a local copy up and running, follow these steps:
 
-To learn more about Next.js, take a look at the following resources:
+### Prerequisites
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Make sure you have [Node.js](https://nodejs.org/) (v18+ recommended) and `npm` installed.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Installation
 
-## Deploy on Vercel
+1. **Clone the repository** (if you haven't already):
+   ```bash
+   git clone https://github.com/3a7anton/golden-years-of-wisdom.git
+   cd golden-years-of-wisdom
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Install dependencies**:
+   ```bash
+   npm install
+   # or yarn install / pnpm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Run the development server**:
+   ```bash
+   npm run dev
+   # or yarn dev / pnpm dev
+   ```
+
+4. **View the application**:
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 📁 Project Structure
+
+- `app/` - Next.js App Router providing individual routes (e.g., `/about`, `/careers`, `/studio-apartments`).
+- `components/layout/` - Global layout components like `Navbar` and `Footer`.
+- `components/sections/` - Modular UI components like `Hero`, `Amenities`, `InquiryForm`, `Timeline`, etc.
+- `lib/` - Shared utility functions and custom hooks.
+- `public/` - Static files containing images and design patterns.
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
