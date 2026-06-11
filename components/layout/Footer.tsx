@@ -56,7 +56,7 @@ export default function Footer() {
       <div className={styles.bottom}>
         <div className="container">
           <p className={styles.copyright}>
-            © 2024 Golden Years of Wisdom · Spectrum EduCare Limited. All rights reserved.
+            © 2026 Golden Years of Wisdom · Spectrum EduCare Limited. All rights reserved.
           </p>
         </div>
       </div>

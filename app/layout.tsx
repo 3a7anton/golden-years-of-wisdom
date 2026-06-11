@@ -1,7 +1,45 @@
 import type { Metadata } from "next";
+import {
+  Playfair_Display,
+  Lora,
+  Inter,
+  Hind_Siliguri,
+} from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+
+// next/font/google — preloads fonts and injects them as CSS variables.
+// font-display:swap is applied automatically; no render-blocking network request.
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const lora = Lora({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const hindSiliguri = Hind_Siliguri({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  variable: "--font-bengali",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -23,7 +61,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${playfair.variable} ${lora.variable} ${inter.variable} ${hindSiliguri.variable}`}
+    >
       <body>
         <a href="#main-content" className="skip-nav">
           Skip to main content

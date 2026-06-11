@@ -3,12 +3,8 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ChevronDown } from "lucide-react";
 import styles from "./Hero.module.css";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -20,71 +16,87 @@ export default function Hero() {
   const arrowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
     if (reducedMotion) return;
 
-    // Manual character split for title
-    const titleEl = titleRef.current;
-    if (titleEl) {
-      const text = titleEl.textContent || "";
-      titleEl.innerHTML = text
-        .split("")
-        .map((char) =>
-          char === " "
-            ? `<span class="${styles.charSpace}"> </span>`
-            : `<span class="${styles.char}">${char}</span>`
-        )
-        .join("");
-    }
+    // Lazy-load GSAP only after hydration — keeps it out of the critical JS path
+    Promise.all([
+      import("gsap"),
+      import("gsap/ScrollTrigger"),
+    ]).then(([{ default: gsap }, { ScrollTrigger }]) => {
+      gsap.registerPlugin(ScrollTrigger);
 
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: 0.2 });
+      const ctx = gsap.context(() => {
+        // Animate as single elements — no character-split, no forced reflow
+        const tl = gsap.timeline({ delay: 0.2 });
 
-      tl.from(badgeRef.current, {
-        scale: 0.7,
-        opacity: 0,
-        duration: 0.5,
-        ease: "back.out(1.7)",
-      })
-        .from(`.${styles.char}`, {
+        tl.from(badgeRef.current, {
+          scale: 0.7,
           opacity: 0,
-          y: 20,
-          stagger: 0.03,
           duration: 0.5,
-          ease: "power3.out",
-        }, "-=0.1")
-        .from(subtitleRef.current, {
-          opacity: 0,
-          y: 15,
-          duration: 0.5,
-        }, "-=0.3")
-        .from(ctaRef.current, {
-          opacity: 0,
-          y: 10,
-          duration: 0.4,
-        }, "-=0.2")
-        .from(arrowRef.current, {
-          opacity: 0,
-          duration: 0.4,
-        }, "-=0.1");
+          ease: "back.out(1.7)",
+        })
+          .from(
+            titleRef.current,
+            {
+              opacity: 0,
+              y: 20,
+              duration: 0.6,
+              ease: "power3.out",
+            },
+            "-=0.1"
+          )
+          .from(
+            subtitleRef.current,
+            {
+              opacity: 0,
+              y: 15,
+              duration: 0.5,
+            },
+            "-=0.3"
+          )
+          .from(
+            ctaRef.current,
+            {
+              opacity: 0,
+              y: 10,
+              duration: 0.4,
+            },
+            "-=0.2"
+          )
+          .from(
+            arrowRef.current,
+            {
+              opacity: 0,
+              duration: 0.4,
+            },
+            "-=0.1"
+          );
 
-      // Parallax
-      gsap.to(imageRef.current, {
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
-        y: "30%",
-      });
-    }, heroRef);
+        // Parallax scroll effect
+        gsap.to(imageRef.current, {
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+          y: "30%",
+        });
+      }, heroRef);
 
-    return () => ctx.revert();
+      return () => ctx.revert();
+    });
   }, []);
 
   return (
-    <section ref={heroRef} className={styles.hero} aria-label="Welcome to Golden Years of Wisdom">
+    <section
+      ref={heroRef}
+      className={styles.hero}
+      aria-label="Welcome to Golden Years of Wisdom"
+    >
       {/* Background Image with Parallax */}
       <div ref={imageRef} className={styles.bgImage}>
         <Image
@@ -92,7 +104,9 @@ export default function Hero() {
           alt="Elderly couple walking together in a sunny park"
           fill
           priority
-          sizes="100vw"
+          // Responsive sizes — browser picks the right AVIF/WebP variant per viewport
+          sizes="(max-width: 640px) 640px, (max-width: 1080px) 1080px, 1920px"
+          quality={75}
           style={{ objectFit: "cover" }}
         />
       </div>

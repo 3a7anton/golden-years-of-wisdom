@@ -67,10 +67,6 @@
   letter-spacing: -0.02em;
 }
 
-.char,
-.charSpace {
-  display: inline-block;
-}
 
 /* Subtitle */
 .subtitle {
