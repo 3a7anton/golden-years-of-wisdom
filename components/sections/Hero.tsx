@@ -101,7 +101,7 @@ export default function Hero() {
       <div ref={imageRef} className={styles.bgImage}>
         <Image
           src="/images/hero-home.png"
-          alt="Elderly couple walking together in a sunny park"
+          alt="Happy seniors enjoying their time together"
           fill
           priority
           // Responsive sizes — browser picks the right AVIF/WebP variant per viewport
